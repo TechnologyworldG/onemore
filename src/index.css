@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #10261f;
+  --color-forest-dark: #071a15;
+  --color-lime: #d6ff58;
+  --color-cream: #f4efe4;
+  --color-ivory: #fffaf1;
+  --color-muted: #5e726c;
+  --color-gold: #f7c873;
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background:
+      radial-gradient(circle at top, rgba(214, 255, 88, 0.12), transparent 20%),
+      linear-gradient(180deg, #f8f3ea 0%, #f2efe6 100%);
+    color: var(--color-forest);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  p {
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-lime);
+    color: var(--color-forest-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    @apply max-w-7xl mx-auto px-6 md:px-10;
+  }
+
+  .soft-panel {
+    @apply rounded-[2rem] border border-forest/10 bg-white/60 backdrop-blur-sm shadow-[0_18px_60px_rgba(16,38,31,0.08)];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
